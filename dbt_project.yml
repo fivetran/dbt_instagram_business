@@ -1,0 +1,9 @@
+name: 'instagram_business'
+version: '0.1.0'
+config-version: 2
+require-dbt-version: ">=0.21.0"
+
+vars:
+  media_history: "{{ ref('stg_instagram_business__media_history') }}"
+  media_insights: "{{ ref('stg_instagram_business__media_insights') }}"
+  user_history: "{{ ref('stg_instagram_business__user_history') }}"
