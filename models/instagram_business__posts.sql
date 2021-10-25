@@ -19,6 +19,7 @@ with media_history as (
 
     select 
         user_history.account_name,
+        user_history.user_id,
         media_history.post_caption,
         media_history.created_timestamp,
         media_history.post_id,
