@@ -1,18 +1,18 @@
 with media_history as (
 
     select *
-    from {{ var('media_history') }}
+    from {{ var('media_history_staging') }}
     where is_most_recent_record = true
 
 ), media_insights as (
 
     select *
-    from {{ var('media_insights') }}
+    from {{ var('media_insights_staging') }}
 
 ), user_history as (
 
     select *
-    from {{ var('user_history') }}
+    from {{ var('user_history_staging') }}
     where is_most_recent_record = true
 
 ), joined as (
