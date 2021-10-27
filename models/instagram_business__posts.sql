@@ -27,7 +27,7 @@ with media_history as (
         media_history.is_story,
         media_history.media_type,
         media_history.media_url,
-        media_history.permalink,
+        media_history.post_url,
         media_history.shortcode,
         media_history.thumbnail_url,
         media_history.username,
