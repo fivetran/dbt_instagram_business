@@ -49,11 +49,17 @@ with media_history as (
         media_insights.video_photo_reach,
         media_insights.video_photo_saved,
         media_insights.video_views
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='instagram_business_union_schemas', 
+            union_database_variable='instagram_business_union_databases') 
+        }}
     from media_history
     left join media_insights
         on media_history.post_id = media_insights.post_id
+        and media_history.source_relation = media_insights.source_relation
     left join user_history
         on media_history.user_id = user_history.user_id
+        and media_history.source_relation = user_history.source_relation
 
 )
 
