@@ -1,3 +1,2 @@
 packages:
-  # - local: ../dbt_instagram_business_source
   - git: "https://github.com/fivetran/dbt_instagram_business_source"

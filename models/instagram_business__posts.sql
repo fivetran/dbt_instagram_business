@@ -8,6 +8,7 @@ with media_history as (
 
     select *
     from {{ var('media_insights_staging') }}
+    where is_most_recent_record = true
 
 ), user_history as (
 

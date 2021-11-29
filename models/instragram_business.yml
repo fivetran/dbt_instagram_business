@@ -3,6 +3,11 @@ version: 2
 models:
   - name: instagram_business__posts
     description: Each record represents the daily performance of a post or story.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - post_id
+            - source_relation
     columns:
       - name: account_name
         description: The name of this user.
@@ -14,6 +19,8 @@ models:
         description: The timestamp this post or story was created
       - name: post_id
         description: The media ID of this post or story
+        tests:
+          - not_null
       - name: is_comment_enabled
         description: Whether comments are enabled for this post or story
       - name: is_story

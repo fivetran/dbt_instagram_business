@@ -1,7 +1,7 @@
 name: 'instagram_business'
 version: '0.1.0'
 config-version: 2
-require-dbt-version: ">=0.21.0"
+require-dbt-version: ">=0.20.0"
 
 vars:
   media_history_staging: "{{ ref('stg_instagram_business__media_history') }}"
