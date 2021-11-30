@@ -7,3 +7,8 @@ vars:
   media_history_staging: "{{ ref('stg_instagram_business__media_history') }}"
   media_insights_staging: "{{ ref('stg_instagram_business__media_insights') }}"
   user_history_staging: "{{ ref('stg_instagram_business__user_history') }}"
+
+models:
+  instagram_business:
+    +schema: instagram_business
+    +materialized: table
