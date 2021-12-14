@@ -3,7 +3,7 @@
 
 This package models Instagram Business data from [Fivetran's connector](https://fivetran.com/docs/applications/instagram-business). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/instagram-business#schemainformation).
 
-The main focus of the package is to transform the core social media object tables into analytics-ready models that can be easily unioned in to other social media platform packages to get a single view. This is especially easy using our [Social Media Reporting package](https://github.com/fivetran/dbt_social_media_reporting).
+The main focus of the package is to transform the core social media object tables into analytics-ready models that can be easily unioned in to other social media platform packages to get a single view. This is aided by our [Social Media Reporting package](https://github.com/fivetran/dbt_social_media_reporting).
 
 ## Models
 
@@ -25,10 +25,10 @@ packages:
 ```
 
 ## Package Maintenance
-The Fivetran team maintaining this package **only** maintains the latest version. We highly recommend you keep your `packages.yml` updated with the [dbt hub latest version](https://hub.getdbt.com/fivetran/instagram_business/latest/). You may refer to the [CHANGELOG](/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package **only** maintains the latest version. We recommend you keep your `packages.yml` updated with the [dbt hub latest version](https://hub.getdbt.com/fivetran/instagram_business/latest/). You may refer to the [CHANGELOG](/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ## Configuration
-By default, this package will look for your Instagram Business data in the `instagram_business` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Instagram Business data is, please add the following configuration to your `dbt_project.yml` file:
+By default, this package will look for your Instagram Business data in the `instagram_business` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Instagram Business data is, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -42,7 +42,7 @@ vars:
 ```
 
 ### Unioning Multiple Instagram Business Connectors
-If you have multiple Instagram Business connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table(s) into the final models. You will be able to see which source it came from in the `source_relation` column(s) of each model. To use this functionality, you will need to set either (**note that you cannot use both**) the `union_schemas` or `union_databases` variables:
+If you have multiple Instagram Business connectors in Fivetran and want to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table(s) into the final models. You will be able to see which source it came from in the `source_relation` column(s) of each model. To use this functionality, you will need to set either (**note that you cannot use both**) the `union_schemas` or `union_databases` variables:
 
 ```yml
 # dbt_project.yml
@@ -57,7 +57,7 @@ vars:
 ```
 ### Changing the Build Schema
 
-By default, this package will build the Instagram Business staging models within a schema titled (`<target_schema>` + `_stg_instagram_business`) and the final Instagram Business models within a schema titled (`<target_schema>` + `_instagram_business`) in your target database. If this is not where you would like your Instagram Business staging data to be written to, add the following configuration to your `dbt_project.yml` file:
+By default, this package will build the Instagram Business staging models within a schema titled (`<target_schema>` + `_stg_instagram_business`) and the final Instagram Business models within a schema titled (`<target_schema>` + `_instagram_business`) in your target database. If this is not where you want your Instagram Business staging data to be written to, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -72,7 +72,7 @@ models:
 
 ## Contributions
 
-Don't see a model or specific metric you would have liked to be included? Notice any bugs when installing and running the package? If so, we highly encourage and welcome contributions to this package! 
+Don't see a model or specific metric you would like to be included? Notice any bugs when installing and running the package? If so, we highly encourage and welcome contributions to this package! 
 Please create issues or open PRs against `main`. See [the Discourse post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) for information on how to contribute to a package.
 
 ## Database Support
