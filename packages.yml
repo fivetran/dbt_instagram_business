@@ -1,2 +1,3 @@
 packages:
-  - git: "https://github.com/fivetran/dbt_instagram_business_source"
+  - package: fivetran/instagram_business_source
+    version: [">=0.1.0", "<0.2.0"]
