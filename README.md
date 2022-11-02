@@ -74,6 +74,7 @@ If an individual source table has a different name than the package expects, add
 vars:
     instagram_business_<default_source_table_name>_identifier: your_table_name 
 ```
+
 ### Unioning Multiple Instagram Business Connectors
 If you have multiple Instagram Business connectors in Fivetran and want to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table(s) into the final models. You will be able to see which source it came from in the `source_relation` column(s) of each model. To use this functionality, you will need to set either (**note that you cannot use both**) the `union_schemas` or `union_databases` variables:
 
@@ -88,6 +89,7 @@ vars:
     ##Or may set EITHER the databases variables below
     instagram_business_union_databases: ['instagram_business_one','instagram_business_two']
 ```
+
 ### Databricks Additional Configuration
 If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your root `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
 ```yml
@@ -118,6 +120,7 @@ packages:
     - package: dbt-labs/dbt_utils
       version: [">=1.0.0", "<2.0.0"]
 ```
+
 # 🙌 How is this package maintained and can I contribute?
 ## Package Maintenance
 The Fivetran team maintaining this package **only** maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/instagram_business/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_instagram_business/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
