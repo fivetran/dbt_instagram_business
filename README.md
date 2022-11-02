@@ -18,7 +18,7 @@
 
 The main focus of the package is to transform the core social media object tables into analytics-ready models that can be easily unioned in to other social media platform packages to get a single view. This is aided by our [Social Media Reporting package](https://github.com/fivetran/dbt_social_media_reporting).
 
-This package also generates a comprehensive data dictionary of your source and modeled Salesforce data via the [dbt docs site](https://fivetran.github.io/dbt_instagram_business/).
+This package also generates a comprehensive data dictionary of your source and modeled Instagram Business data via the [dbt docs site](https://fivetran.github.io/dbt_instagram_business/).
 
 You can also refer to the table below for a detailed view of all models materialized by default within this package.
 
