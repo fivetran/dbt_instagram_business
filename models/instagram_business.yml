@@ -73,5 +73,17 @@ models:
         description: Total number of unique Instagram accounts that have saved the video IG Media object.
       - name: video_views
         description: Total number of times the video IG Media object has been viewed.
+      - name: reel_comments
+        description: Total number of comments on the reel IG Media object.
+      - name: reel_likes
+        description: Total number of likes on the reel IG Media object.
+      - name: reel_plays
+        description: Total number of times the reel IG Media object has been played.
+      - name: reel_reach
+        description: Total number of unique Instagram accounts that have seen the reel IG Media object.
+      - name: reel_shares
+        description: Total number of times the reel IG Media object has been shared.
+      - name: reel_total_interactions
+        description: Total number of interactions the reel IG Media object had.
       - name: source_relation
         description: The source of the record, if the unioning functionality is being used.
