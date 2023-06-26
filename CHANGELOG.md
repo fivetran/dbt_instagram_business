@@ -1,3 +1,18 @@
+# dbt_instagram_business v0.2.1
+[PR #9](https://github.com/fivetran/dbt_instagram_business/pull/9) includes the following updates.
+
+## Feature Updates
+- Addition of the following fields and accompanying documentation to the `instagram_business__posts` model:
+    - `reel_comments`
+    - `reel_likes`
+    - `reel_plays`
+    - `reel_reach`
+    - `reel_shares`
+    - `reel_total_interactions`
+
+## Contributors
+- [@IbraFal](https://github.com/IbraFal) ([PR #9](https://github.com/fivetran/dbt_instagram_business/pull/9))
+
 # dbt_instagram_business v0.2.0
 
 ## 🚨 Breaking Changes 🚨:
