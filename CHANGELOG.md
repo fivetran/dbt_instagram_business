@@ -1,9 +1,22 @@
-# dbt_instagram_business v0.UPDATE.UPDATE
+# dbt_instagram_business v0.2.1
+[PR #9](https://github.com/fivetran/dbt_instagram_business/pull/9) includes the following updates.
 
- ## Under the Hood:
+## Feature Updates
+- Addition of the following fields and accompanying documentation to the `instagram_business__posts` model:
+    - `reel_comments`
+    - `reel_likes`
+    - `reel_plays`
+    - `reel_reach`
+    - `reel_shares`
+    - `reel_total_interactions`
 
+## Under the Hood
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
 - Updated the pull request [templates](/.github).
+
+## Contributors
+- [@IbraFal](https://github.com/IbraFal) ([PR #9](https://github.com/fivetran/dbt_instagram_business/pull/9))
+
 # dbt_instagram_business v0.2.0
 
 ## 🚨 Breaking Changes 🚨:
