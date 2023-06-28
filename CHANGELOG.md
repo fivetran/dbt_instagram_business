@@ -10,6 +10,10 @@
     - `reel_shares`
     - `reel_total_interactions`
 
+## Under the Hood
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
+- Updated the pull request [templates](/.github).
+
 ## Contributors
 - [@IbraFal](https://github.com/IbraFal) ([PR #9](https://github.com/fivetran/dbt_instagram_business/pull/9))
 
