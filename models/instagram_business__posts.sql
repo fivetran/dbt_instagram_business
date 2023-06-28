@@ -50,6 +50,12 @@ with media_history as (
         media_insights.video_photo_reach,
         media_insights.video_photo_saved,
         media_insights.video_views,
+        media_insights.reel_comments,
+        media_insights.reel_likes,
+        media_insights.reel_plays,
+        media_insights.reel_reach,
+        media_insights.reel_shares,
+        media_insights.reel_total_interactions,
         media_history.source_relation
     from media_history
     left join media_insights
