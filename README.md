@@ -20,11 +20,15 @@ The main focus of the package is to transform the core social media object table
 
 This package also generates a comprehensive data dictionary of your source and modeled Instagram Business data via the [dbt docs site](https://fivetran.github.io/dbt_instagram_business/).
 
-You can also refer to the table below for a detailed view of all models materialized by default within this package.
+<!--section=“instagram_business_transformation_model"-->
 
-| **model**                    | **description**                                                                                                        |
+You can also refer to the table below for a detailed view of all tables materialized by default within this package.
+
+| **Table**                    | **Description**                                                                                                        |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | [instagram_business__posts](https://github.com/fivetran/dbt_instagram_business/blob/main/models/instagram_business__posts.sql)         | Each record represents the daily performance of a post or story. |
+
+<!--section-end-->
 
 ## How do I use the dbt package?
 ### Step 1: Pre-Requisites
