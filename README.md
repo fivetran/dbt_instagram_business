@@ -28,12 +28,14 @@ You can also refer to the table below for a detailed view of all tables material
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | [instagram_business__posts](https://github.com/fivetran/dbt_instagram_business/blob/main/models/instagram_business__posts.sql)         | Each record represents the daily performance of a post or story. |
 
+### Materialized Models
+Each Quickstart transformation job run materializes 7 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 <!--section-end-->
 
 ## How do I use the dbt package?
 ### Step 1: Pre-Requisites
 You will need to ensure you have the following before leveraging the dbt package.
-- **Connector**: Have the Fivetran Instagram Business connector syncing data into your warehouse.
+- **Connector**: Have the Fivetran Instagram Business connection syncing data into your warehouse.
 - **Database support**: This package has been tested on **BigQuery**, **Snowflake**, **Redshift**, **Databricks**, and **Postgres**. Ensure you are using one of these supported databases.
 
 #### Databricks Additional Configuration
@@ -88,7 +90,7 @@ vars:
 ```
 
 #### Unioning Multiple Instagram Business Connectors
-If you have multiple Instagram Business connectors in Fivetran and want to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table(s) into the final models. You will be able to see which source it came from in the `source_relation` column(s) of each model. To use this functionality, you will need to set either (**note that you cannot use both**) the `union_schemas` or `union_databases` variables:
+If you have multiple Instagram Business connections in Fivetran and want to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table(s) into the final models. You will be able to see which source it came from in the `source_relation` column(s) of each model. To use this functionality, you will need to set either (**note that you cannot use both**) the `union_schemas` or `union_databases` variables:
 
 ```yml
 # dbt_project.yml
