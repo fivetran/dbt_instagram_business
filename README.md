@@ -30,8 +30,7 @@ You can also refer to the table below for a detailed view of all tables material
 
 ### Materialized Models
 Each Quickstart transformation job run materializes 7 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
-### Materialized Models
-Each Quickstart transformation job run materializes 7 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
+
 <!--section-end-->
 
 ## How do I use the dbt package?
