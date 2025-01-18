@@ -4,12 +4,6 @@
 - Added Quickstart model counts to README. ([#16](https://github.com/fivetran/dbt_instagram_business/pull/16))
 - Corrected references to connectors and connections in the README. ([#16](https://github.com/fivetran/dbt_instagram_business/pull/16))
 
-# dbt_instagram_business version.version
-
-## Documentation
-- Added Quickstart model counts to README. ([#15](https://github.com/fivetran/dbt_instagram_business/pull/15))
-- Corrected references to connectors and connections in the README. ([#15](https://github.com/fivetran/dbt_instagram_business/pull/15))
-
 # dbt_instagram_business v0.2.1
 [PR #9](https://github.com/fivetran/dbt_instagram_business/pull/9) includes the following updates.
 
