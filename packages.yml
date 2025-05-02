@@ -1,3 +1,6 @@
 packages:
-- package: fivetran/instagram_business_source
-  version: [">=0.2.0", "<0.3.0"]
+# - package: fivetran/instagram_business_source
+#   version: [">=0.3.0", "<0.4.0"]
+- git: https://github.com/fivetran/dbt_instagram_business_source.git
+  revision: update/apr-2025-api-update
+  warn-unpinned: false

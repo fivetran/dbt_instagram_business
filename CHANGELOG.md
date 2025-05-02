@@ -1,4 +1,20 @@
-# dbt_instagram_business version.version
+# dbt_instagram_business v0.3.0
+[PR #18](https://github.com/fivetran/dbt_instagram_business/pull/18) includes the following updates.
+
+## Schema Changes  
+13 total changes • 0 possible breaking changes  
+
+| Data Model | Change type | Old name | New name | Notes |
+|------------|-------------|----------|----------|-------|
+| [`instagram_business__posts`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.instagram_business__posts) | New Columns | | `carousel_album_shares`, `carousel_album_views`, `story_shares`, `story_views`, `video_photo_shares`, `reel_views` | |
+| [`instagram_business__posts`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.instagram_business__posts) | Deprecated Columns | `carousel_album_impressions`, `carousel_album_video_views`, `story_impressions`, `video_photo_impressions`, `video_views`, `reel_plays` |                                                                                                                            | Retained for backward compatibility but will be removed in a future release |
+| [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | New Columns | | `carousel_album_shares`, `carousel_album_views`, `story_shares`, `story_views`, `video_photo_shares`, `reel_views`, `source_relation` | |
+| [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | Deprecated Columns | `carousel_album_impressions`, `carousel_album_video_views`, `story_impressions`, `video_photo_impressions`, `video_views`, `reel_plays` | | Retained for backward compatibility but will be removed in a future release  |
+
+
+## Updates
+- [April 2025 Fivetran Connector Updates](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#april2025)
+- [Instagram API docs](https://developers.facebook.com/docs/instagram-platform/reference/instagram-media/insights)
 
 ## Documentation
 - Added Quickstart model counts to README. ([#16](https://github.com/fivetran/dbt_instagram_business/pull/16))
