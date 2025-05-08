@@ -90,14 +90,14 @@ models:
       - name: source_relation
         description: The source of the record, if the unioning functionality is being used.
       - name: carousel_album_impressions
-        description: (DEPRECATED) Total number of times the album IG Media object has been seen
+        description: (DEPRECATED Apr 2025) Total number of times the album IG Media object has been seen
       - name: carousel_album_video_views
-        description: (DEPRECATED) Total number of unique Instagram accounts that have viewed video IG Media within the album.
+        description: (DEPRECATED Apr 2025) Total number of unique Instagram accounts that have viewed video IG Media within the album.
       - name: story_impressions
-        description: (DEPRECATED) Total number of times the story IG Media object has been seen.
+        description: (DEPRECATED Apr 2025) Total number of times the story IG Media object has been seen.
       - name: video_photo_impressions
-        description: (DEPRECATED) Total number of times the video IG Media object has been seen.
+        description: (DEPRECATED Apr 2025) Total number of times the video IG Media object has been seen.
       - name: video_views
-        description: (DEPRECATED) Total number of times the video IG Media object has been viewed.
+        description: (DEPRECATED Dec 2024) Total number of times the video IG Media object has been viewed.
       - name: reel_plays
-        description: (DEPRECATED) Total number of times the reel IG Media object has been played.
+        description: (DEPRECATED Apr 2025) Total number of times the reel IG Media object has been played.

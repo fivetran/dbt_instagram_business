@@ -2,7 +2,7 @@
 [PR #18](https://github.com/fivetran/dbt_instagram_business/pull/18) includes the following updates.
 
 ## Schema Changes  
-13 total changes • 0 possible breaking changes  
+4 total changes • 0 possible breaking changes  
 
 | Data Model | Change type | Old name | New name | Notes |
 |------------|-------------|----------|----------|-------|
@@ -12,13 +12,18 @@
 | [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | Deprecated Columns | `carousel_album_impressions`, `carousel_album_video_views`, `story_impressions`, `video_photo_impressions`, `video_views`, `reel_plays` | | Retained for backward compatibility but will be removed in a future release  |
 
 ## Updates
-- [April 2025 Fivetran Connector Updates](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#april2025)
-- [December 2024 Fivetran Connector Updates](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#december2024)
-- [Instagram API docs](https://developers.facebook.com/docs/instagram-platform/reference/instagram-media/insights)
+- Applied schema changes to align with the [April 2025](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#april2025) and [December 2024](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#december2024) Fivetran connector updates:
+    - Deprecated metrics are retained for backward compatibility but will be removed in a future release.
+    - Refer to the [Instagram API documentation](https://developers.facebook.com/docs/instagram-platform/reference/instagram-media/insights) for more context on updated fields.
 
 ## Documentation
+- Added definitions for newly introduced fields.
+- Marked deprecated fields accordingly.
 - Added Quickstart model counts to README. ([#16](https://github.com/fivetran/dbt_instagram_business/pull/16))
 - Corrected references to connectors and connections in the README. ([#16](https://github.com/fivetran/dbt_instagram_business/pull/16))
+
+## Under the Hood
+- Expanded seed data with new columns to support testing of recent schema changes.
 
 # dbt_instagram_business v0.2.1
 [PR #9](https://github.com/fivetran/dbt_instagram_business/pull/9) includes the following updates.
