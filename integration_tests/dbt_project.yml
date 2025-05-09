@@ -23,3 +23,6 @@ seeds:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
         ig_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+
+models:
+  +schema: "instagram_business_{{ var('directed_schema','dev') }}"

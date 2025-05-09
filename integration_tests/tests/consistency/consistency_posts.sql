@@ -1,19 +1,22 @@
 {{ config(tags="fivetran_validations", enabled=var('fivetran_validation_tests_enabled', false)) }}
 
 {% set table_name = 'instagram_business__posts' %}
+{% set exclude_cols = '(' ~ var('exclude_post_columns', '_dbt_source_relation')  ~ ')' %}
 
-{% if execute and target.type == 'bigquery' %}
 -- Find the common columns to use in the comparison. This currently only works for BQ.
+{% if execute and target.type == 'bigquery' %}
 {% set common_cols_query %}
     select column_name
     from {{ target.database }}.{{ target.schema }}_instagram_business_prod.INFORMATION_SCHEMA.COLUMNS
-    where lower(table_name) = {{ table_name }}
+    where lower(table_name) = '{{ table_name }}'
+    and lower(column_name) not in {{ exclude_cols }}
 
     intersect distinct
 
     select column_name
     from {{ target.database }}.{{ target.schema }}_instagram_business_dev.INFORMATION_SCHEMA.COLUMNS
-    where lower(table_name) = {{ table_name }}
+    where lower(table_name) = '{{ table_name }}'
+    and lower(column_name) not in {{ exclude_cols }}
 {% endset %}
 
 {% set common_cols = run_query(common_cols_query).columns[0].values() %}
