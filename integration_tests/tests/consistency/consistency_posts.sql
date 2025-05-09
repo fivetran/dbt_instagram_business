@@ -1,17 +1,36 @@
+{{ config(tags="fivetran_validations", enabled=var('fivetran_validation_tests_enabled', false)) }}
 
-{{ config(
-    tags="fivetran_validations",
-    enabled=var('fivetran_validation_tests_enabled', false)
-) }}
+{% set table_name = 'instagram_business__posts' %}
+
+{% if execute and target.type == 'bigquery' %}
+-- Find the common columns to use in the comparison. This currently only works for BQ.
+{% set common_cols_query %}
+    select column_name
+    from {{ target.database }}.{{ target.schema }}_instagram_business_prod.INFORMATION_SCHEMA.COLUMNS
+    where lower(table_name) = {{ table_name }}
+
+    intersect distinct
+
+    select column_name
+    from {{ target.database }}.{{ target.schema }}_instagram_business_dev.INFORMATION_SCHEMA.COLUMNS
+    where lower(table_name) = {{ table_name }}
+{% endset %}
+
+{% set common_cols = run_query(common_cols_query).columns[0].values() %}
+{% set column_list = common_cols | join(', ') %}
+
+{% else %}
+{% set column_list = '*' %}
+{% endif %}
 
 with prod as (
-    select *
-    from {{ target.schema }}_instagram_business_prod.instagram_business__posts
+    select {{ column_list }}
+    from {{ target.schema }}_instagram_business_prod.{{ table_name }}
 ),
 
 dev as (
-    select *
-    from {{ target.schema }}_instagram_business_dev.instagram_business__posts
+    select {{ column_list }}
+    from {{ target.schema }}_instagram_business_dev.{{ table_name }}
 ),
 
 prod_not_in_dev as (

@@ -1,8 +1,5 @@
 
-{{ config(
-    tags="fivetran_validations",
-    enabled=var('fivetran_validation_tests_enabled', false)
-) }}
+{{ config(tags="fivetran_validations", enabled=var('fivetran_validation_tests_enabled', false)) }}
 
 {% set metrics = [
     'carousel_album_engagement',
@@ -33,28 +30,42 @@
 ] %}
 
 with staging as (
-    select
-        {% for metric in metrics %}
-            sum({{ metric }}) as staging_sum_{{ metric }}{{ ','  if not loop.last }}
-        {% endfor %}
+    select *
     from {{ target.schema }}_instagram_business_dev.stg_instagram_business__media_insights
     where is_most_recent_record
 ),
 
 transform as (
-    select
-        {% for metric in metrics %}
-            sum({{ metric }}) as transform_sum_{{ metric }}{{ ','  if not loop.last }}
-        {% endfor %}
+    select *
     from {{ target.schema }}_instagram_business_dev.instagram_business__posts
 ),
 
-select *
-from staging
-full join transform
-
-where 
+staging_agg as (
 {% for metric in metrics %}
-    staging_sum_{{ metric }} != transform_sum_{{ metric }}
-    {{ 'or' if not loop.last }}
+    select
+        sum({{ metric }}) as staging_value,
+        '{{ metric }}' as staging_metric
+    from staging
+
+    {{ 'union all' if not loop.last }}
 {% endfor %}
+),
+
+transform_agg as (
+{% for metric in metrics %}
+    select
+        sum({{ metric }}) as transform_value,
+        '{{ metric }}' as transform_metric
+    from transform
+
+    {{ 'union all' if not loop.last }}
+{% endfor %}
+)
+
+select *
+from staging_agg
+
+full outer join transform_agg
+on staging_metric = transform_metric
+
+where staging_value != transform_value
