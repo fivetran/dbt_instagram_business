@@ -26,6 +26,7 @@
 
 ## Under the Hood
 - Expanded seed data with new columns to support testing of recent schema changes.
+- Added consistency and integrity tests.
 
 # dbt_instagram_business v0.2.1
 [PR #9](https://github.com/fivetran/dbt_instagram_business/pull/9) includes the following updates.
