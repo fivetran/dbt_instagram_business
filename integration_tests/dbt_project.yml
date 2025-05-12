@@ -9,6 +9,8 @@ vars:
     instagram_business_user_history_identifier: "instagram_business_user_history_data"
     instagram_business_schema: instagram_business_integration_tests_1
 seeds:
+  +docs:
+    show: false
   instagram_business_integration_tests:
     instagram_business_media_history_data:
       +column_types:
