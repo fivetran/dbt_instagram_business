@@ -6,10 +6,12 @@
 
 | Data Model | Change type | Old name | New name | Notes |
 |------------|-------------|----------|----------|-------|
-| [`instagram_business__posts`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.instagram_business__posts) | New Columns | | `carousel_album_shares`, `carousel_album_views`, `story_shares`, `story_views`, `video_photo_shares`, `reel_views` | |
+| [`instagram_business__posts`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.instagram_business__posts) | New Columns | | `carousel_album_shares`, `carousel_album_views`, `story_shares`, `story_views`, `video_photo_shares`, `video_photo_views`, `reel_views` | |
 | [`instagram_business__posts`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.instagram_business__posts) | Deprecated Columns | `carousel_album_impressions`, `carousel_album_video_views`, `story_impressions`, `video_photo_impressions`, `video_views`, `reel_plays` | | Retained for backward compatibility but will be removed in a future release |
-| [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | New Columns | | `carousel_album_shares`, `carousel_album_views`, `story_shares`, `story_views`, `video_photo_shares`, `reel_views`, `source_relation` | |
+| [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | New Columns | | `carousel_album_shares`, `carousel_album_views`, `story_shares`, `story_views`, `video_photo_shares`, `video_photo_views`, `reel_views` | |
 | [`stg_instagram_business__media_insights`](https://fivetran.github.io/dbt_instagram_business_source/#!/model/model.instagram_business_source.stg_instagram_business__media_insights) | Deprecated Columns | `carousel_album_impressions`, `carousel_album_video_views`, `story_impressions`, `video_photo_impressions`, `video_views`, `reel_plays` | | Retained for backward compatibility but will be removed in a future release  |
+
+- `*_views` will replace `*_impressions`, but since the metrics are not exactly identical, we’ve kept them separate rather than coalescing them. For more context, see [this decision log entry](https://github.com/fivetran/dbt_social_media_reporting/blob/main/DECISIONLOG.md) from the `dbt_social_media_reporting` rollup package.
 
 ## Updates
 - Applied schema changes to align with the [April 2025](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#april2025) and [December 2024](https://fivetran.com/docs/connectors/applications/instagram-business/changelog#december2024) Fivetran connector updates:
