@@ -1,5 +1,5 @@
 name: 'instagram_business_integration_tests'
-version: '0.2.1'
+version: '0.3.0'
 profile: 'integration_tests'
 config-version: 2
 vars:
@@ -9,6 +9,8 @@ vars:
     instagram_business_user_history_identifier: "instagram_business_user_history_data"
     instagram_business_schema: instagram_business_integration_tests_1
 seeds:
+  +docs:
+    show: false
   instagram_business_integration_tests:
     instagram_business_media_history_data:
       +column_types:
@@ -23,3 +25,6 @@ seeds:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
         ig_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+
+models:
+  +schema: "instagram_business_{{ var('directed_schema','dev') }}"

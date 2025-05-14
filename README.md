@@ -1,4 +1,6 @@
-<p align="center">
+# Instagram Business Modeling dbt Package ([Docs](https://fivetran.github.io/dbt_instagram_business/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_instagram_business/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -9,8 +11,6 @@
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
-
-# Instagram Business Modeling dbt Package ([Docs](https://fivetran.github.io/dbt_instagram_business/))
 
 ## What does this dbt package do?
 
@@ -54,7 +54,7 @@ Include the following Instagram Business package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/instagram_business
-    version: [">=0.2.0", "<0.3.0"]
+    version: [">=0.3.0", "<0.4.0"]
 ```
 
 ### Step 3: Configure Your Variables
@@ -119,7 +119,7 @@ This dbt package is dependent on the following dbt packages. These dependencies 
 ```yml
 packages:
     - package: fivetran/instagram_business_source
-      version: [">=0.2.0", "<0.3.0"]
+      version: [">=0.3.0", "<0.4.0"]
 
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]

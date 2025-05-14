@@ -39,22 +39,20 @@ models:
         description: Username of user who created the media.
       - name: carousel_album_engagement
         description: Total number of likes and IG Comments on the album IG Media object.
-      - name: carousel_album_impressions
-        description: Total number of times the album IG Media object has been seen
       - name: carousel_album_reach
         description: Total number of unique Instagram accounts that have seen the album IG Media object.
       - name: carousel_album_saved
         description: Total number of unique Instagram accounts that have saved the album IG Media object.
-      - name: carousel_album_video_views
-        description: Total number of unique Instagram accounts that have viewed video IG Media within the album.
+      - name: carousel_album_shares
+        description: Total number of times the album IG Media object has been shared.
+      - name: carousel_album_views
+        description: Total number of times the album IG Media object has been viewed.
       - name: comment_count
         description: Total number of comments on the IG Media object.
       - name: like_count
         description: Total number of likes on the IG Media object.
       - name: story_exits
         description: Number of times someone exited the story IG Media object.
-      - name: story_impressions
-        description: Total number of times the story IG Media object has been seen.
       - name: story_reach
         description: Total number of unique Instagram accounts that have seen the story IG Media object.
       - name: story_replies
@@ -63,27 +61,43 @@ models:
         description: Total number of taps to see this story IG Media object's next photo or video.
       - name: story_taps_forward
         description: Total number of taps to see this story IG Media object's previous photo or video.
+      - name: story_shares
+        description: Total number of times the story IG Media object has been shared.
+      - name: story_views
+        description: Total number of times the story IG Media object has been viewed.
       - name: video_photo_engagement
         description: Total number of likes and IG Comments on the video IG Media object.
-      - name: video_photo_impressions
-        description: Total number of times the video IG Media object has been seen.
       - name: video_photo_reach
         description: Total number of unique Instagram accounts that have seen the video IG Media object.
       - name: video_photo_saved
         description: Total number of unique Instagram accounts that have saved the video IG Media object.
-      - name: video_views
+      - name: video_photo_shares
+        description: Total number of times the video IG Media object has been shared.
+      - name: video_photo_views
         description: Total number of times the video IG Media object has been viewed.
       - name: reel_comments
         description: Total number of comments on the reel IG Media object.
       - name: reel_likes
         description: Total number of likes on the reel IG Media object.
-      - name: reel_plays
-        description: Total number of times the reel IG Media object has been played.
       - name: reel_reach
         description: Total number of unique Instagram accounts that have seen the reel IG Media object.
       - name: reel_shares
         description: Total number of times the reel IG Media object has been shared.
       - name: reel_total_interactions
         description: Total number of interactions the reel IG Media object had.
+      - name: reel_views
+        description: Total number of times the reel IG Media object has been viewed.
       - name: source_relation
         description: The source of the record, if the unioning functionality is being used.
+      - name: carousel_album_impressions
+        description: (DEPRECATED Apr 2025) Total number of times the album IG Media object has been seen
+      - name: carousel_album_video_views
+        description: (DEPRECATED Apr 2025) Total number of unique Instagram accounts that have viewed video IG Media within the album.
+      - name: story_impressions
+        description: (DEPRECATED Apr 2025) Total number of times the story IG Media object has been seen.
+      - name: video_photo_impressions
+        description: (DEPRECATED Apr 2025) Total number of times the video IG Media object has been seen.
+      - name: video_views
+        description: (DEPRECATED Dec 2024) Total number of times the video IG Media object has been viewed.
+      - name: reel_plays
+        description: (DEPRECATED Apr 2025) Total number of times the reel IG Media object has been played.
