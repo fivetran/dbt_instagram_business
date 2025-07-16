@@ -28,3 +28,6 @@ seeds:
 
 models:
   +schema: "instagram_business_{{ var('directed_schema','dev') }}"
+flags:
+  send_anonymous_usage_stats: False
+  use_colors: True
