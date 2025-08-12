@@ -14,7 +14,7 @@
 
 ## What does this dbt package do?
 
-- Produces modeled tables that leverage Instagram Business data from [Fivetran's connector](https://fivetran.com/docs/applications/instagram-business) in the format described by [this ERD](https://fivetran.com/docs/applications/instagram-business#schemainformation) and builds off the output of our [Instagram Business source package](https://github.com/fivetran/dbt_instagram_business_source).
+- Produces modeled tables that leverage Instagram Business data from [Fivetran's connector](https://fivetran.com/docs/applications/instagram-business) in the format described by [this ERD](https://fivetran.com/docs/applications/instagram-business#schemainformation).
 
 The main focus of the package is to transform the core social media object tables into analytics-ready models that can be easily unioned in to other social media platform packages to get a single view. This is aided by our [Social Media Reporting package](https://github.com/fivetran/dbt_social_media_reporting).
 
@@ -54,7 +54,7 @@ Include the following Instagram Business package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/instagram_business
-    version: [">=0.3.0", "<0.4.0"]
+    version: [">=1.0.0", "<1.1.0"]
 ```
 
 ### Step 3: Configure Your Variables
@@ -76,9 +76,9 @@ By default, this package builds the GitHub staging models within a schema titled
 ```yml
 models:
     instagram_business:
-      +schema: my_new_schema_name # leave blank for just the target_schema
-    instagram_business_source:
-      +schema: my_new_schema_name # leave blank for just the target_schema
+      +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
+      staging:
+        +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
 ```
 
 #### Change the source table references
@@ -118,9 +118,6 @@ This dbt package is dependent on the following dbt packages. These dependencies 
     
 ```yml
 packages:
-    - package: fivetran/instagram_business_source
-      version: [">=0.3.0", "<0.4.0"]
-
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]
 
