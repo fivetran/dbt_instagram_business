@@ -1,21 +1,27 @@
 version: 2
 
 models:
-  - name: instagram_business__posts
-    description: Each record represents the daily performance of a post or story.
-    columns:
-      - name: account_name
-        description: The name of this user.
-      - name: user_id
-        description: The ID of this user.
+  - name: stg_instagram_business__media_history
+    description: Each record represents a version of an Instagram post or story
+    columns: 
+      - name: _fivetran_id
+        description: Fivetran's internal ID for this record
+        tests:  
+          - not_null
+      - name: _fivetran_synced
+        description: When this record was last synced with Fivetran
       - name: post_caption
         description: The caption of the post or story
+      - name: carousel_album_id
+        description: The ID of the carousel album this post or story belongs to
       - name: created_timestamp
         description: The timestamp this post or story was created
       - name: post_id
         description: The media ID of this post or story
         tests:
           - not_null
+      - name: ig_id
+        description: The Instagram media ID of this post or story
       - name: is_comment_enabled
         description: Whether comments are enabled for this post or story
       - name: is_story
@@ -30,8 +36,24 @@ models:
         description: Shortcode to the media.
       - name: thumbnail_url
         description: Media thumbnail URL. Only available on VIDEO media.
+      - name: user_id
+        description: ID of the user who posted this post or story
       - name: username
         description: Username of user who created the media.
+      - name: is_most_recent_record
+        description: Whether this is the most recent record of this post/story.
+      - name: source_relation
+        description: The source of the record, if the unioning functionality is being used.
+
+  - name: stg_instagram_business__media_insights
+    description: Each record represents the daily performance of a post or story.
+    columns:
+      - name: _fivetran_id
+        description: Fivetran's internal ID for this record
+        tests:
+          - not_null
+      - name: _fivetran_synced
+        description: When this record was last synced with Fivetran
       - name: carousel_album_engagement
         description: Total number of likes and IG Comments on the album IG Media object.
       - name: carousel_album_reach
@@ -44,6 +66,10 @@ models:
         description: Total number of times the album IG Media object has been viewed.
       - name: comment_count
         description: Total number of comments on the IG Media object.
+      - name: post_id
+        description: The media ID of this post or story
+        tests:
+          - not_null
       - name: like_count
         description: Total number of likes on the IG Media object.
       - name: story_exits
@@ -85,7 +111,9 @@ models:
       - name: source_relation
         description: The source of the record, if the unioning functionality is being used.
       - name: carousel_album_impressions
-        description: (DEPRECATED Apr 2025) Total number of times the album IG Media object has been seen
+        description: (DEPRECATED Apr 2025) Total number of times the album IG Media object has been seen.
+      - name: is_most_recent_record
+        description: Boolean indicating if the record is the most recent.
       - name: carousel_album_video_views
         description: (DEPRECATED Apr 2025) Total number of unique Instagram accounts that have viewed video IG Media within the album.
       - name: story_impressions
@@ -96,3 +124,33 @@ models:
         description: (DEPRECATED Dec 2024) Total number of times the video IG Media object has been viewed.
       - name: reel_plays
         description: (DEPRECATED Apr 2025) Total number of times the reel IG Media object has been played.
+
+  - name: stg_instagram_business__user_history
+    description: Each record represents a version of an Instagram user. 
+    columns:
+      - name: _fivetran_id
+        description: Fivetran's internal ID for this record
+        tests:
+          - not_null
+      - name: _fivetran_synced
+        description: When this record was last synced with Fivetran
+      - name: followers_count
+        description: Total number of followers of this user.
+      - name: follows_count
+        description: Total number of users this user follows.
+      - name: user_id
+        description: The user ID of this user.
+        tests:
+          - not_null
+      - name: ig_id
+        description: The Instagram user ID of this user.
+      - name: media_count
+        description: Total number of media this user has posted.
+      - name: account_name
+        description: The name of this user.
+      - name: username
+        description: The username of this user.
+      - name: website
+        description: The website linked in the profile of this user.
+      - name: source_relation
+        description: The source of the record, if the unioning functionality is being used.
