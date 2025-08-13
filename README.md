@@ -1,4 +1,4 @@
-# Instagram Business Modeling dbt Package ([Docs](https://fivetran.github.io/dbt_instagram_business/))
+# Instagram Business dbt Package ([Docs](https://fivetran.github.io/dbt_instagram_business/))
 
 <p align="left">
     <a alt="License"
