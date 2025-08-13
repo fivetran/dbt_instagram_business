@@ -1,19 +1,19 @@
 with media_history as (
 
     select *
-    from {{ var('media_history_staging') }}
+    from {{ ref('stg_instagram_business__media_history') }}
     where is_most_recent_record = true
 
 ), media_insights as (
 
     select *
-    from {{ var('media_insights_staging') }}
+    from {{ ref('stg_instagram_business__media_insights') }}
     where is_most_recent_record = true
 
 ), user_history as (
 
     select *
-    from {{ var('user_history_staging') }}
+    from {{ ref('stg_instagram_business__user_history') }}
     where is_most_recent_record = true
 
 ), joined as (
