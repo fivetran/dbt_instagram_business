@@ -71,7 +71,7 @@ vars:
 <details><summary>Expand for configurations</summary>
 
 #### Change the Build Schema
-By default, this package builds the GitHub staging models within a schema titled (<target_schema> + `_stg_instagram_business`) in your target database. If this is not where you would like your GitHub staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the Instagram Business staging models within a schema titled (<target_schema> + `_stg_instagram_business`) in your target database. If this is not where you would like your Instagram Business staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:
@@ -83,7 +83,7 @@ models:
 
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
-> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
+> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business/blob/main/dbt_project.yml) variable declarations to see the expected names.
     
 ```yml
 vars:
