@@ -1,4 +1,4 @@
-# Instagram Business Modeling dbt Package ([Docs](https://fivetran.github.io/dbt_instagram_business/))
+# Instagram Business dbt Package ([Docs](https://fivetran.github.io/dbt_instagram_business/))
 
 <p align="left">
     <a alt="License"
@@ -10,11 +10,14 @@
         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
+    <a alt="Fivetran Quickstart Compatible"
+        href="https://fivetran.com/docs/transformations/dbt/quickstart">
+        <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
 ## What does this dbt package do?
 
-- Produces modeled tables that leverage Instagram Business data from [Fivetran's connector](https://fivetran.com/docs/applications/instagram-business) in the format described by [this ERD](https://fivetran.com/docs/applications/instagram-business#schemainformation) and builds off the output of our [Instagram Business source package](https://github.com/fivetran/dbt_instagram_business_source).
+- Produces modeled tables that leverage Instagram Business data from [Fivetran's connector](https://fivetran.com/docs/applications/instagram-business) in the format described by [this ERD](https://fivetran.com/docs/applications/instagram-business#schemainformation).
 
 The main focus of the package is to transform the core social media object tables into analytics-ready models that can be easily unioned in to other social media platform packages to get a single view. This is aided by our [Social Media Reporting package](https://github.com/fivetran/dbt_social_media_reporting).
 
@@ -54,7 +57,7 @@ Include the following Instagram Business package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/instagram_business
-    version: [">=0.3.0", "<0.4.0"]
+    version: [">=1.0.0", "<1.1.0"]
 ```
 
 ### Step 3: Configure Your Variables
@@ -71,19 +74,20 @@ vars:
 <details><summary>Expand for configurations</summary>
 
 #### Change the Build Schema
-By default, this package builds the GitHub staging models within a schema titled (<target_schema> + `_stg_instagram_business`) in your target database. If this is not where you would like your GitHub staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the Instagram Business staging models within a schema titled (<target_schema> + `_stg_instagram_business`) in your target database. If this is not where you would like your Instagram Business staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:
     instagram_business:
-      +schema: my_new_schema_name # leave blank for just the target_schema
-    instagram_business_source:
-      +schema: my_new_schema_name # leave blank for just the target_schema
+      +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
+      staging:
+        +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
 ```
 
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
-> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
+
+> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_instagram_business/blob/main/dbt_project.yml) variable declarations to see the expected names.
     
 ```yml
 vars:
@@ -115,12 +119,9 @@ Fivetran offers the ability for you to orchestrate your dbt project through the 
 ## Does this package have dependencies?
 This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
 > IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
-    
+
 ```yml
 packages:
-    - package: fivetran/instagram_business_source
-      version: [">=0.3.0", "<0.4.0"]
-
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]
 
