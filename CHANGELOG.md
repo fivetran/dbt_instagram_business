@@ -19,6 +19,10 @@
   - Removed all `accepted_values` tests.
   - Moved `loaded_at_field: _fivetran_synced` under the `config:` block in `src_instagram_business.yml`.
 
+## Under the Hood
+- Updated conditions in `.github/workflows/auto-release.yml`.
+- Added `.github/workflows/generate-docs.yml`.
+
 # dbt_instagram_business v0.3.0
 [PR #18](https://github.com/fivetran/dbt_instagram_business/pull/18) includes the following updates.
 
