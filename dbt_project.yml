@@ -3,13 +3,16 @@ version: '1.0.0'
 config-version: 2
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 vars:
-  media_history_staging: "{{ source('instagram_business', 'media_history') }}"
-  media_insights_staging: "{{ source('instagram_business', 'media_insights') }}"
-  user_history_staging: "{{ source('instagram_business', 'user_history') }}"
+  instagram_business:
+    media_history_staging: "{{ source('instagram_business', 'media_history') }}"
+    media_insights_staging: "{{ source('instagram_business', 'media_insights') }}"
+    user_history_staging: "{{ source('instagram_business', 'user_history') }}"
 models:
   instagram_business:
     +schema: instagram_business
     +materialized: table
     staging:
-      +schema: instagram_business_source
-      +materialized: view
+      +schema: stg_instagram_business
+      +materialized: table
+      tmp:
+        +materialized: view
