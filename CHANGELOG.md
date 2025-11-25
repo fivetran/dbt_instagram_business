@@ -1,3 +1,10 @@
+# dbt_instagram_business v1.1.0
+
+[PR #26](https://github.com/fivetran/dbt_instagram_business/pull/26) includes the following updates:
+
+## Features
+  - Increases the required dbt version upper limit to v3.0.0
+
 # dbt_instagram_business v1.0.0
 
 [PR #23](https://github.com/fivetran/dbt_instagram_business/pull/23) includes the following updates:
