@@ -48,7 +48,7 @@ By default, this package materializes the following final tables:
 
 | Table | Description |
 | :---- | :---- |
-| [instagram_business__posts](https://github.com/fivetran/dbt_instagram_business/blob/main/models/instagram_business__posts.sql) | Tracks daily performance metrics for your Instagram posts and stories to measure engagement, reach, and content effectiveness across your feed. <br></br>**Example Analytics Questions:**<ul><li>Which posts or stories generate the highest engagement rates by content type or time of day?</li><li>How does reach and impression growth compare across different posting strategies?</li><li>What types of content (posts vs stories) drive the most follower interaction?</li></ul>|
+| [instagram_business__posts](https://fivetran.github.io/dbt_instagram_business/#!/model/model.instagram_business.instagram_business__posts) | Tracks daily performance metrics for your Instagram posts and stories to measure engagement, reach, and content effectiveness across your feed. <br></br>**Example Analytics Questions:**<ul><li>Which posts or stories generate the highest engagement rates by content type or time of day?</li><li>How does reach and impression growth compare across different posting strategies?</li><li>What types of content (posts vs stories) drive the most follower interaction?</li></ul>|
 
 ¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 
