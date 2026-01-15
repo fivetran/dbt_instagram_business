@@ -52,7 +52,6 @@ By default, this package materializes the following final tables:
 
 ¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 
-<!--section-end-->
 
 ## Prerequisites
 To use this dbt package, you must have the following:
@@ -65,8 +64,8 @@ You can either add this dbt package in the Fivetran dashboard or import it into 
 
 - To add the package in the Fivetran dashboard, follow our [Quickstart guide](https://fivetran.com/docs/transformations/data-models/quickstart-management).
 - To add the package to your dbt project, follow the setup instructions in the dbt package's [README file](https://github.com/fivetran/dbt_instagram_business/blob/main/README.md#how-do-i-use-the-dbt-package) to use this package.
-
-### Installing the Package
+<!--section-end-->
+### Install the Package
 Include the following Instagram Business package version in your `packages.yml`
 > Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
