@@ -74,7 +74,7 @@ Include the following Instagram Business package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/instagram_business
-    version: [">=1.2.0", "<1.3.0"]
+    version: [">=1.1.0", "<1.2.0"]
 ```
 
 #### Databricks Additional Configuration
