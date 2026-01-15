@@ -1,4 +1,5 @@
-# Instagram Business dbt Package ([Docs](https://fivetran.github.io/dbt_instagram_business/))
+<!--section="instagram-business_transformation_model"-->
+# Instagram Business dbt Package
 
 <p align="left">
     <a alt="License"
@@ -11,46 +12,62 @@
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
     <a alt="Fivetran Quickstart Compatible"
-        href="https://fivetran.com/docs/transformations/dbt/quickstart">
+        href="https://fivetran.com/docs/transformations/data-models/quickstart-management#quickstartmanagement">
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
+This dbt package transforms data from Fivetran's Instagram Business connector into analytics-ready tables.
+
+## Resources
+
+- Number of materialized models¹: 7
+- Connector documentation
+  - [Instagram Business connector documentation](https://fivetran.com/docs/connectors/applications/instagram-business)
+  - [Instagram Business ERD](https://fivetran.com/docs/connectors/applications/instagram-business#schemainformation)
+- dbt package documentation
+  - [GitHub repository](https://github.com/fivetran/dbt_instagram_business)
+  - [dbt Docs](https://fivetran.github.io/dbt_instagram_business/#!/overview)
+  - [DAG](https://fivetran.github.io/dbt_instagram_business/#!/overview?g_v=1)
+  - [Changelog](https://github.com/fivetran/dbt_instagram_business/blob/main/CHANGELOG.md)
+
 ## What does this dbt package do?
+This package enables you to transform core social media object tables into analytics-ready models and generate comprehensive data dictionaries. It creates enriched models with metrics focused on post and story performance that can be easily unioned with other social media platform packages.
 
-- Produces modeled tables that leverage Instagram Business data from [Fivetran's connector](https://fivetran.com/docs/applications/instagram-business) in the format described by [this ERD](https://fivetran.com/docs/applications/instagram-business#schemainformation).
+This is aided by our [Social Media Reporting package](https://github.com/fivetran/dbt_social_media_reporting).
 
-The main focus of the package is to transform the core social media object tables into analytics-ready models that can be easily unioned in to other social media platform packages to get a single view. This is aided by our [Social Media Reporting package](https://github.com/fivetran/dbt_social_media_reporting).
+### Output schema
+Final output tables are generated in the following target schema:
 
-This package also generates a comprehensive data dictionary of your source and modeled Instagram Business data via the [dbt docs site](https://fivetran.github.io/dbt_instagram_business/).
+```
+<your_database>.<connector/schema_name>_instagram_business
+```
 
-<!--section=“instagram_business_transformation_model"-->
+### Final output tables
 
-You can also refer to the table below for a detailed view of all tables materialized by default within this package.
+By default, this package materializes the following final tables:
 
-| **Table**                    | **Description**                                                                                                        |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| [instagram_business__posts](https://github.com/fivetran/dbt_instagram_business/blob/main/models/instagram_business__posts.sql)         | Each record represents the daily performance of a post or story. |
+| Table | Description |
+| :---- | :---- |
+| [instagram_business__posts](https://fivetran.github.io/dbt_instagram_business/#!/model/model.instagram_business.instagram_business__posts) | Tracks daily performance metrics for your Instagram posts and stories to measure engagement, reach, and content effectiveness across your feed. <br></br>**Example Analytics Questions:**<ul><li>Which posts or stories generate the highest engagement rates by content type or time of day?</li><li>How does reach and impression growth compare across different posting strategies?</li><li>What types of content (posts vs stories) drive the most follower interaction?</li></ul>|
 
-### Materialized Models
-Each Quickstart transformation job run materializes 7 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
+¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
+
+
+## Prerequisites
+To use this dbt package, you must have the following:
+
+- At least one Fivetran Instagram Business connection syncing data into your destination.
+- A BigQuery, Snowflake, Redshift, PostgreSQL, or Databricks destination.
+
+## How do I use the dbt package?
+You can either add this dbt package in the Fivetran dashboard or import it into your dbt project:
+
+- To add the package in the Fivetran dashboard, follow our [Quickstart guide](https://fivetran.com/docs/transformations/data-models/quickstart-management).
+- To add the package to your dbt project, follow the setup instructions in the dbt package's [README file](https://github.com/fivetran/dbt_instagram_business/blob/main/README.md#how-do-i-use-the-dbt-package) to use this package.
 
 <!--section-end-->
 
-## How do I use the dbt package?
-### Step 1: Pre-Requisites
-To use this dbt package, you must have the following:
-- At least one  Fivetran Instagram Business connection syncing data into your destination.
-- A BigQuery, Snowflake, Redshift, PostgreSQL, or Databricks destination.
-
-#### Databricks Additional Configuration
-If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your root `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
-```yml
-dispatch:
-  - macro_namespace: dbt_utils
-    search_order: ['spark_utils', 'dbt_utils']
-```
-
-### Step 2: Installing the Package
+### Install the Package
 Include the following Instagram Business package version in your `packages.yml`
 > Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
@@ -60,7 +77,15 @@ packages:
     version: [">=1.1.0", "<1.2.0"]
 ```
 
-### Step 3: Configure Your Variables
+#### Databricks Additional Configuration
+If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your root `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
+```yml
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
+```
+
+### Configure Your Variables
 #### Database and Schema Variables
 By default, this package will look for your Instagram Business data in the `instagram_business` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Instagram Business data is, add the following configuration to your `dbt_project.yml` file:
 
@@ -70,7 +95,7 @@ vars:
     instagram_business_database: your_database_name 
 ```
 
-### (Optional) Step 4: Additional Configurations
+### (Optional) Additional Configurations
 <details><summary>Expand for configurations</summary>
 
 #### Change the Build Schema
@@ -110,10 +135,10 @@ vars:
 ```
 </details>
 
-### (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™
+### (Optional) Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for configurations</summary>
 <br>
-Fivetran offers the ability for you to orchestrate your dbt project through the [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt) product. Refer to the linked docs for more information on how to setup your project for orchestration through Fivetran.
+Fivetran offers the ability for you to orchestrate your dbt project through the [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt#transformationsfordbtcore) product. Refer to the linked docs for more information on how to setup your project for orchestration through Fivetran.
 </details>
 
 ## Does this package have dependencies?
@@ -132,14 +157,18 @@ packages:
       version: [">=0.3.0", "<0.4.0"]
 ```
 
+<!--section="instagram-business_maintenance"-->
 ## How is this package maintained and can I contribute?
+
 ### Package Maintenance
-The Fivetran team maintaining this package **only** maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/instagram_business/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_instagram_business/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package only maintains the [latest version](https://hub.getdbt.com/fivetran/instagram_business/latest/) of the package. We highly recommend you stay consistent with the latest version of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_instagram_business/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ### Contributions
-A small team of analytics engineers at Fivetran develops these dbt packages. However, these packages are made better by community contributions.
+A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions.
 
-We highly encourage and welcome contributions to this package. Check out [this dbt Discourse article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) on the best workflow for contributing to a package.
+We highly encourage and welcome contributions to this package. Learn how to contribute to a package in dbt's [Contributing to an external dbt package article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657).
+
+<!--section-end-->
 
 ## Are there any resources available?
 - If you have questions or want to reach out for help, refer to the [GitHub Issue](https://github.com/fivetran/dbt_instagram_business/issues/new/choose) section to find the right avenue of support for you.
