@@ -1,3 +1,9 @@
+# dbt_instagram_business v1.2.0
+[PR #22](https://github.com/fivetran/dbt_instagram_business/pull/28) includes the following update:
+
+## Documentation
+- Updates README with standardized Fivetran formatting.
+
 # dbt_instagram_business v1.1.0
 [PR #26](https://github.com/fivetran/dbt_instagram_business/pull/26) includes the following updates:
 
