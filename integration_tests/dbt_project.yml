@@ -27,6 +27,9 @@ seeds:
         ig_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
 
 models:
+  +persist_docs:
+    relation: true
+    columns: "{{ false if target.type in ('databricks') else true }}"
   +schema: "instagram_business_{{ var('directed_schema','dev') }}"
 flags:
   send_anonymous_usage_stats: False
