@@ -72,7 +72,6 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-### Configure Your Variables
 
 ### Define database and schema variables
 #### Option A: Single connection
