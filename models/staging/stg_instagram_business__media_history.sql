@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -16,10 +15,7 @@ fields as (
             )
         }}
 
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='instagram_business_union_schemas', 
-            union_database_variable='instagram_business_union_databases') 
-        }}
+        {{ fivetran_utils.apply_source_relation(package_name='instagram_business') }}
         
     from base
 ),
@@ -51,7 +47,7 @@ is_most_recent as (
 
     select 
         *,
-        row_number() over (partition by post_id, source_relation order by _fivetran_synced desc) = 1 as is_most_recent_record
+        row_number() over (partition by post_id {{ fivetran_utils.partition_by_source_relation(package_name='instagram_business') }} order by _fivetran_synced desc) = 1 as is_most_recent_record
     from final
 
 )

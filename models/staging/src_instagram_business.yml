@@ -7,6 +7,7 @@ sources:
     loader: Fivetran
     config:
       loaded_at_field: _fivetran_synced
+      enabled: "{{ var('instagram_business_sources', []) == [] }}"
     tables:
       - name: media_history
         identifier: "{{ var('instagram_business_media_history_identifier', 'media_history')}}"
