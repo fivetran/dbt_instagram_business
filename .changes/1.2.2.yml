@@ -1,0 +1,8 @@
+version: 1.2.2
+pr_number: 36
+under_the_hood:
+- description: Adds the missing `is_most_recent_record` column description to the
+    `stg_instagram_business__user_history` model documentation. This column was already
+    present in the model output, but was not documented alongside its equivalents
+    in `stg_instagram_business__media_history` and `stg_instagram_business__media_insights`.
+date: '2026-11-13'
