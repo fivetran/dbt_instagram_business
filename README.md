@@ -15,7 +15,7 @@ This dbt package transforms data from Fivetran's Instagram Business connector in
   - [DAG](https://fivetran.github.io/dbt_instagram_business/#!/overview?g_v=1)
   - [Changelog](https://github.com/fivetran/dbt_instagram_business/blob/main/CHANGELOG.md)
 - dbt Core™ supported versions
-  - `>=1.3.0, <3.0.0`
+  - `>=1.10.0, <3.0.0`
 
 ## What does this dbt package do?
 This package enables you to transform core social media object tables into analytics-ready models and generate comprehensive data dictionaries. It creates enriched models with metrics focused on post and story performance that can be easily unioned with other social media platform packages.
@@ -61,7 +61,7 @@ Include the following Instagram Business package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/instagram_business
-    version: [">=1.2.0", "<1.3.0"]
+    version: [">=1.3.0", "<1.4.0"]
 ```
 
 #### Databricks Additional Configuration
