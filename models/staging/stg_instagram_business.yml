@@ -3,6 +3,13 @@ version: 2
 models:
   - name: stg_instagram_business__media_history
     description: Each record represents a version of an Instagram post or story
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - _fivetran_id
+              - post_id
     columns: 
       - name: _fivetran_id
         description: Fivetran's internal ID for this record
@@ -47,6 +54,13 @@ models:
 
   - name: stg_instagram_business__media_insights
     description: Each record represents the daily performance of a post or story.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - _fivetran_id
+              - post_id
     columns:
       - name: _fivetran_id
         description: Fivetran's internal ID for this record
@@ -127,6 +141,13 @@ models:
 
   - name: stg_instagram_business__user_history
     description: Each record represents a version of an Instagram user. 
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - _fivetran_id
+              - user_id
     columns:
       - name: _fivetran_id
         description: Fivetran's internal ID for this record
