@@ -152,5 +152,7 @@ models:
         description: The username of this user.
       - name: website
         description: The website linked in the profile of this user.
+      - name: is_most_recent_record
+        description: Whether this is the most recent version of this user record.
       - name: source_relation
         description: The source of the record, if the unioning functionality is being used.
