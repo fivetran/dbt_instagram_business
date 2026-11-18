@@ -7,7 +7,7 @@
 - Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_instagram_business/issues/new/choose).
 
 ## Under the Hood
-- Adds the missing `is_most_recent_record` column description to the `stg_instagram_business__user_history` model documentation. This column was already present in the model output, but was not documented alongside its equivalents in `stg_instagram_business__media_history` and `stg_instagram_business__media_insights`.
+- Adds `is_most_recent_record` column description to the `stg_instagram_business__user_history` model documentation.
 
 # dbt_instagram_business v1.2.1
 
