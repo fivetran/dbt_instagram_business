@@ -20,7 +20,7 @@ models:
         description: The timestamp this post or story was created
       - name: post_id
         description: The media ID of this post or story
-        tests:
+        data_tests:
           - not_null
       - name: is_comment_enabled
         description: Whether comments are enabled for this post or story
