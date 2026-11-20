@@ -1,3 +1,14 @@
+# dbt_instagram_business v1.3.0
+
+[PR #35](https://github.com/fivetran/dbt_instagram_business/pull/35) includes the following updates:
+
+## Feature Update
+- Raises the minimum dbt version to 1.10.0.
+- Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_instagram_business/issues/new/choose).
+
+## Under the Hood
+- Updates yml column documentation to match model output.
+
 # dbt_instagram_business v1.2.1
 
 [PR #33](https://github.com/fivetran/dbt_instagram_business/pull/33) includes the following updates:
